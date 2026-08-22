@@ -1,588 +1,215 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Dip Mondal</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- Navigation -->
-    <header class="header" id="header">
-        <nav class="nav container">
-            <a href="#home" class="nav__logo">Portfolio</a>
-            
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="#home" class="nav__link active-link">Home</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#about" class="nav__link">About</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#skills" class="nav__link">Skills</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#projects" class="nav__link">Projects</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#education" class="nav__link">Education</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#experience" class="nav__link">Experience</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#contact" class="nav__link">Contact</a>
-                    </li>
-                </ul>
-                <div class="nav__close" id="nav-close">
-                    <i class="fas fa-times"></i>
-                </div>
-            </div>
-
-            <div class="nav__toggle" id="nav-toggle">
-                <i class="fas fa-ellipsis-v"></i>
-            </div>
-        </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio of Dip Mondal, B.Tech CSE student and developer." />
+    <title>Dip Mondal | B.Tech CSE Student</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <style>
+      :root { --ink:#f7f9ff; --muted:#aebbd1; --paper:#0b1220; --card:#17243a; --blue:#67d4ff; --cyan:#38bdf8; --line:#2a405c; --dark:#0b1220; --accent:#5590f5; --violet:#7866e9; }
+      * { box-sizing:border-box; }
+      html { scroll-behavior:smooth; }
+      body { margin:0; font-family:Manrope,Arial,sans-serif; color:var(--ink); background:radial-gradient(circle at 8% 7%, #1d355d 0, transparent 24rem), radial-gradient(circle at 93% 30%, #25264f 0, transparent 30rem), linear-gradient(135deg, #090f1c 0%, #111b2c 48%, #0a1220 100%); background-attachment:fixed; line-height:1.6; }
+      a { color:inherit; text-decoration:none; }
+      .container { width:min(1120px, calc(100% - 40px)); margin:auto; }
+      .nav { height:78px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #ffffff0d; }
+      .brand { font-weight:800; letter-spacing:-.04em; font-size:1.25rem; }
+      .nav-links { display:flex; gap:26px; font-size:.88rem; font-weight:700; color:#bdc9dc; }
+      .nav-links a:hover { color:var(--blue); }
+      .menu { display:none; background:none; border:0; font:inherit; color:var(--ink); cursor:pointer; }
+      .hero { min-height:650px; display:grid; grid-template-columns:1.1fr .9fr; align-items:center; gap:76px; padding:70px 0 90px; }
+      .eyebrow, .section-kicker { color:var(--blue); font:500 .76rem/1 'DM Mono', monospace; text-transform:uppercase; letter-spacing:.11em; }
+      h1 { font-size:clamp(3rem, 6vw, 5.25rem); line-height:1.02; letter-spacing:-.065em; margin:18px 0 22px; max-width:720px; }
+      h1 em, .name-highlight { color:var(--accent); font-style:normal; }
+      .hero-copy { color:var(--muted); max-width:580px; font-size:1.06rem; }
+      .actions { display:flex; gap:14px; flex-wrap:wrap; margin-top:34px; }
+      .btn { display:inline-flex; align-items:center; justify-content:center; padding:13px 20px; border-radius:8px; font-size:.9rem; font-weight:800; transition:.2s; }
+      .btn.primary { background:var(--blue); color:#10213f; box-shadow:0 12px 24px #3158d833; }
+      .btn.primary:hover { transform:translateY(-2px); background:#a2ddff; }
+      .btn.secondary { border:1px solid #54718f; color:var(--ink); background:#ffffff0d; }
+      .project-button, .cv-button { gap:8px; }
+      .project-button:hover, .cv-button:hover { transform:translateY(-3px); background:#1c3655; border-color:var(--blue); color:#fff; box-shadow:0 12px 24px #0004; }
+      .role-line { color:var(--muted); font-size:clamp(1.15rem, 2.3vw, 1.65rem); font-weight:700; margin:0 0 16px; min-height:2.6rem; }
+      .typing { color:var(--accent); } .cursor { color:var(--blue); animation:blink .8s step-end infinite; }
+      .socials { display:flex; gap:11px; margin-top:27px; }
+      .socials a { width:40px; height:40px; display:grid; place-items:center; border:1px solid #415574; border-radius:10px; color:var(--muted); transition:.2s; }
+      .socials a:hover { color:white; background:var(--accent); border-color:var(--accent); transform:translateY(-3px); }
+      .photo-wrap { position:relative; display:grid; place-items:center; min-height:440px; }
+      .photo-wrap::before, .photo-wrap::after { content:""; position:absolute; border-radius:50%; }
+      .photo-wrap::before { width:365px; height:365px; background:linear-gradient(145deg, #5ad5ff, #7866e9 55%, #d96064); filter:blur(1px); animation:orbit 7s ease-in-out infinite; }
+      .photo-wrap::after { width:460px; height:460px; border:1px solid #8adfff3b; }
+      .portrait { width:min(360px, 78vw); aspect-ratio:1; object-fit:cover; border-radius:50%; position:relative; z-index:1; border:8px solid #14243d; box-shadow:0 0 0 1px #9fe4ff77, 0 25px 70px #010817aa; animation:float 5s ease-in-out infinite; }
+      .photo-label { position:absolute; z-index:2; right:2%; bottom:5%; background:#13233cd9; border:1px solid #5bd3ff66; border-radius:10px; padding:10px 13px; color:#c8edff; font:500 .67rem 'DM Mono',monospace; box-shadow:0 12px 24px #0005; }
+      @keyframes blink { 50% { opacity:0; } } @keyframes float { 50% { transform:translateY(-13px); } } @keyframes orbit { 50% { transform:scale(1.07) rotate(12deg); filter:brightness(1.2); } }
+      section { padding:108px 0; }
+      .section-heading { display:flex; justify-content:space-between; gap:30px; align-items:end; margin-bottom:46px; }
+      h2 { font-size:clamp(2rem,4vw,3.2rem); letter-spacing:-.055em; line-height:1.05; margin:12px 0 0; }
+      .section-intro { max-width:390px; color:var(--muted); margin:0; font-size:.95rem; }
+      .about { background:linear-gradient(90deg,#ffffff05,#ffffff01); border-top:1px solid #ffffff0b; border-bottom:1px solid #ffffff0b; }
+      .about-grid { display:grid; grid-template-columns:1fr 1.1fr; gap:90px; }
+      .about-lead { font-size:1.42rem; letter-spacing:-.035em; line-height:1.5; margin:0; }
+      .about-detail { color:var(--muted); margin:0 0 24px; }
+      .quick-facts { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:28px; }
+      .fact { border-left:2px solid var(--cyan); padding:2px 0 2px 12px; }
+      .fact strong { display:block; font-size:1.05rem; }
+      .fact span { color:var(--muted); font-size:.76rem; }
+      .skill-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+      .skill { background:var(--card); border:1px solid var(--line); padding:23px; border-radius:13px; }
+      .skill h3 { margin:0 0 14px; font-size:1rem; letter-spacing:-.025em; }
+      .tags { display:flex; flex-wrap:wrap; gap:7px; }
+      .tag { background:#244468; color:#bfe9ff; padding:5px 9px; border-radius:5px; font:500 .72rem 'DM Mono',monospace; }
+      .projects { background:linear-gradient(110deg,#101a31dd,#0c1527dd); color:white; border-top:1px solid #ffffff0b; border-bottom:1px solid #ffffff0b; }
+      .projects .section-kicker { color:#7dd3fc; } .projects .section-intro { color:#b7c6dd; }
+      .project-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+      .project { border:1px solid #ffffff20; border-radius:14px; padding:26px; min-height:274px; display:flex; flex-direction:column; background:#ffffff08; transition:.2s; }
+      .project:hover { transform:translateY(-5px); border-color:#7dd3fc88; }
+      .project-number { color:#7dd3fc; font:500 .78rem 'DM Mono',monospace; }
+      .project h3 { font-size:1.25rem; letter-spacing:-.035em; margin:28px 0 10px; }
+      .project p { color:#bdc9dc; font-size:.86rem; margin:0; }
+      .project-footer { margin-top:auto; padding-top:20px; color:#8ba1c4; font:500 .7rem 'DM Mono',monospace; }
+      .timeline { max-width:850px; margin:auto; border-left:1px solid #54718f; padding-left:34px; }
+      .timeline-item { position:relative; padding:0 0 42px; }
+      .timeline-item:last-child { padding-bottom:0; }
+      .timeline-item::before { content:""; position:absolute; width:11px; height:11px; border:3px solid var(--blue); background:var(--dark); border-radius:50%; left:-40px; top:6px; }
+      .timeline-meta { color:var(--blue); font:500 .75rem 'DM Mono',monospace; }
+      .timeline h3 { font-size:1.08rem; margin:5px 0 3px; letter-spacing:-.02em; }
+      .timeline p { color:var(--muted); font-size:.88rem; margin:0; }
+      .contact { background:linear-gradient(115deg,#1a2541,#121b31); text-align:center; }
+      .contact h2 { max-width:650px; margin:12px auto 18px; }
+      .contact p { color:var(--muted); max-width:510px; margin:0 auto 26px; }
+      footer { background:#0c1b35; color:#b8c6da; padding:27px 0; font-size:.78rem; border-top:1px solid #27435f; }
+      .footer-inner { display:flex; justify-content:space-between; gap:20px; }
+      .footer-inner a { color:white; font-weight:700; }
+      @media (max-width:760px) {
+        .container { width:min(1120px, calc(100% - 32px)); }
+        .nav { height:66px; }
+        .menu { display:block; }
+        .nav-links { display:none; position:absolute; top:66px; left:16px; right:16px; background:#192d4d; z-index:3; padding:18px; border:1px solid var(--line); border-radius:10px; flex-direction:column; gap:14px; }
+        .nav-links.open { display:flex; }
+        .hero { grid-template-columns:1fr; gap:16px; padding:52px 0 54px; min-height:0; }
+        .hero h1 { font-size:clamp(3.1rem, 16vw, 4.3rem); margin:15px 0 20px; }
+        .hero-copy { font-size:1rem; }
+        .role-line { margin-bottom:12px; min-height:2rem; }
+        .socials { gap:9px; margin-top:23px; }
+        .socials a { width:39px; height:39px; }
+        .actions { gap:10px; margin-top:27px; }
+        .actions .btn { flex:1; padding:13px 10px; white-space:nowrap; }
+        .photo-wrap { min-height:330px; margin-top:14px; }
+        .photo-wrap::before { width:270px; height:270px; }
+        .photo-wrap::after { width:330px; height:330px; }
+        .portrait { width:250px; border-width:6px; }
+        .photo-label { right:3%; bottom:1%; font-size:.58rem; padding:8px 10px; }
+        section { padding:60px 0; }
+        .section-heading { margin-bottom:32px; }
+        .section-heading, .about-grid { display:block; }
+        .section-intro { margin-top:18px; }
+        .about-grid { display:grid; gap:32px; }
+        .skill-grid, .project-grid { grid-template-columns:1fr; }
+        .skill, .project { padding:22px; }
+        .quick-facts { grid-template-columns:1fr 1fr; }
+        .footer-inner { display:block; }
+        .footer-inner p { margin:0 0 9px; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="container nav">
+      <a class="brand" href="#top">Portfolio</a>
+      <button class="menu" aria-label="Open navigation">Menu</button>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#contact">Contact</a>
+      </nav>
     </header>
-
-    <!-- Main Content -->
-    <main class="main">
-        <!-- Home Section -->
-        <section class="home section" id="home">
-            <div class="home__container container grid">
-                <div class="home__content">
-                    <span class="home__subtitle"><b>Welcome</b></span>
-                    <h1 class="home__title">
-                        Hi, I'm <span class="home__title-name">Dip Mondal</span>
-                        <br>
-                        <span class="typing-text">I'm a <span class="typing"></span></span>
-                    </h1>
-                    <p class="home__description">
-                        A passionate developer with expertise in C, C++, Python, HTML and CSS. 
-                        I love creating innovative solutions and building amazing projects that make a difference.
-                    </p>
-                    
-                    <div class="home__social">
-                        <a href="https://www.linkedin.com/in/me/" target="_blank" class="home__social-link">
-                            <i class="fa-brands fa-linkedin"></i>
-                        </a>
-                        <a href="https://github.com/dip9564" target="_blank" class="home__social-link">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://x.com/DipMondal121425" target="_blank" class="home__social-link">
-                            <i class="fa-brands fa-x-twitter"></i>
-                        </a>
-                        <a href="https://www.instagram.com/knox_dipmondal/" target="_blank" class="home__social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.facebook.com/profile.php?id=100064803362843" target="_blank" class="home__social-link">
-                            <i class="fa-brands fa-facebook"></i>
-                        </a>
-                    </div>
-
-                    <div class="home__buttons">
-                        <a href="#contact" class="button button--flex">
-                            Contact Me <i class="fas fa-arrow-right button__icon"></i>
-                        </a>
-                        <a href="#projects" class="button button--flex button--ghost">
-                            View Projects <i class="fas fa-briefcase button__icon"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="home__img">
-                    <img src="main.jpg" alt="Profile" class="home__blob-img">
-                    <div class="home__blob"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section class="about section" id="about">
-            <h2 class="section__title">About Me</h2>
-            <span class="section__subtitle">My Introduction</span>
-
-            <div class="about__container container grid">
-                <img src="main1.jpg" alt="About" class="about__img">
-                
-                <div class="about__data">
-                    <p class="about__description">
-                        I am a dedicated software developer with a strong passion for programming and problem-solving. 
-                        My expertise spans multiple programming languages including C, C++, Python, SQL, HTML and CSS. 
-                        I enjoy working on challenging projects that push my boundaries and help me grow as a developer.
-                    </p>
-
-                    <div class="about__info">
-                        <div>
-                            <span class="about__info-title">02+</span>
-                            <span class="about__info-name">Projects <br> Completed</span>
-                        </div>
-                        <div>
-                            <span class="about__info-title">02+</span>
-                            <span class="about__info-name">Years of <br> Experience</span>
-                        </div>
-                        <div>
-                            <span class="about__info-title">1+</span>
-                            <span class="about__info-name">Technologies <br> Mastered</span>
-                        </div>
-                    </div>
-
-                    <div class="about__buttons">
-                        <a download="my_Resume.pdf" href="Resume.pdf" class="button button--flex">
-                            Download CV <i class="fas fa-download button__icon"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section class="skills section" id="skills">
-            <h2 class="section__title">Skills</h2>
-            <span class="section__subtitle">My Technical Level</span>
-
-            <div class="skills__container container grid">
-                <!-- Frontend Skills -->
-                <div class="skills__content skills__open">
-                    <div class="skills__header">
-                        <i class="fas fa-code skills__icon"></i>
-                        <div>
-                            <h1 class="skills__title">Programming Languages</h1>
-                            <span class="skills__subtitle">More than 1 year</span>
-                        </div>
-                        <i class="fas fa-chevron-down skills__arrow"></i>
-                    </div>
-
-                    <div class="skills__list grid">
-                        <div class="skills__data">
-                            <div class="skills__titles">
-                                <h3 class="skills__name">C</h3>
-                                <span class="skills__number">80%</span>
-                            </div>
-                            <div class="skills__bar">
-                                <span class="skills__percentage skills__c"></span>
-                            </div>
-                        </div>
-
-                        <div class="skills__data">  
-                            <div class="skills__titles">
-                                <h3 class="skills__name">C++</h3>
-                                <span class="skills__number">90%</span>
-                            </div>
-                            <div class="skills__bar">
-                                <span class="skills__percentage skills__cpp"></span>
-                            </div>
-                        </div>
-
-                        <div class="skills__data">
-                            <div class="skills__titles">
-                                <h3 class="skills__name">Python</h3>
-                                <span class="skills__number">90%</span>
-                            </div>
-                            <div class="skills__bar">
-                                <span class="skills__percentage skills__python"></span>
-                            </div>
-                        </div>
-                        
-                        
-                    </div>
-                </div>
-
-                <!-- Backend Skills -->
-                <div class="skills__content skills__close">
-                    <div class="skills__header">
-                        <i class="fas fa-server skills__icon"></i>
-                        <div>
-                            <h1 class="skills__title">Web Technologies</h1>
-                            <span class="skills__subtitle">More than 1 year</span>
-                        </div>
-                        <i class="fas fa-chevron-down skills__arrow"></i>
-                    </div>
-
-                    <div class="skills__list grid">
-                        <div class="skills__data">
-                            <div class="skills__titles">
-                                <h3 class="skills__name">HTML</h3>
-                                <span class="skills__number">90%</span>
-                            </div>
-                            <div class="skills__bar">
-                                <span class="skills__percentage skills__html"></span>
-                            </div>
-                        </div>
-
-                        <div class="skills__data">
-                            <div class="skills__titles">
-                                <h3 class="skills__name">CSS</h3>
-                                <span class="skills__number">75%</span>
-                            </div>
-                            <div class="skills__bar">
-                                <span class="skills__percentage skills__css"></span>
-                            </div>
-                        </div>
-
-                        
-
-                        <div class="skills__data">
-                            <div class="skills__titles">
-                                <h3 class="skills__name">Database (SQL)</h3>
-                                <span class="skills__number">85%</span>
-                            </div>
-                            <div class="skills__bar">
-                                <span class="skills__percentage skills__database"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section class="projects section" id="projects">
-            <h2 class="section__title">Projects</h2>
-            <span class="section__subtitle">My Recent Work</span>
-
-            <div class="projects__container container grid">
-                <!-- Project 1 -->
-                <div class="projects__content">
-                    <div>
-                        <i class="fab fa-python projects__icon"></i>
-                        <a href="https://github.com/dip9564" target="_blank" >
-                            <h3 class="projects__title">Wifi speed test</h3>
-                            <p class="projects__description">
-                                A Python-based WiFi speed test tool that automatically measures download, upload, and ping performance.
-                            </p>
-                        </a>
-                    </div>
-                    <div class="projects__button">
-                        <a href="https://github.com/dip9564/Wifi_Speed_test" target="_blank" class="button button--small button--link">
-                            View details <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="projects__content">
-                    <div>
-                        <i class="fab fa-python projects__icon"></i>
-                        <a href="https://qrgenaretor-app.streamlit.app" target="_blank" >
-                        <h3 class="projects__title">QR Code Generator</h3>
-                            <p class="projects__description">
-                                A Python-based QR code generator that creates custom QR codes for URLs, 
-                                text, and contact information .
-                            </p>
-                        </a>
-                    </div>
-                    <div class="projects__button">
-                        <a href="https://github.com/dip9564/Qr_Genaretor" target="_blank" class="button button--small button--link">
-                            View details <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="projects__content">
-                    <div>
-                        <i class="fab fa-python projects__icon"></i>
-                        <a href="https://video-download-app.streamlit.app" target="_blank" >
-                            <h3 class="projects__title">YouTube Video Downloader</h3>
-                            <p class="projects__description">
-                                A program built with Python to download YouTube/Facebook videos 
-                                in various formats and resolutions with a user choice.
-                            </p>
-                        </a>
-                    </div>
-                    <div class="projects__button">
-                        <a href="https://github.com/dip9564/video_download_app" target="_blank" class="button button--small button--link">
-                            View details <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="projects__content">
-                    <div>
-                        <i class="fab fa-cuttlefish projects__icon"></i>
-                        <a href="https://msg-spam-detection.streamlit.app" target="_blank" >
-                        <h3 class="projects__title">SMS Spam Detection</h3>
-                            <p class="projects__description">
-                                This SMS Spam Detection app uses Machine Learning to classify messages as Spam or Not Spam.
-                                Model: Logistic Regression
-                            </p>
-                        </a>
-                    </div>
-                    <div class="projects__button">
-                        <a href="https://github.com/dip9564/sms_spam_detection" target="_blank" class="button button--small button--link">
-                            View details <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 5 -->
-                <div class="projects__content">
-                    <div>
-                        <i class="fab fa-js projects__icon"></i>
-                        <a href="https://github.com/dip9564" target="_blank" >
-                            <h3 class="projects__title">Portfolio Website</h3>
-                            <p class="projects__description">
-                                A modern, responsive portfolio website built with HTML, CSS, and JavaScript 
-                                featuring smooth animations and interactive elements.
-                            </p>
-                        </a>
-                    </div>
-                    <div class="projects__button">
-                        <a href="https://github.com/dip9564/Portfolio" target="_blank" class="button button--small button--link">
-                            View details <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Project 6 -->
-                <div class="projects__content">
-                    <div>
-                        <i class="fas fa-code projects__icon"></i>
-                        <h3 class="projects__title">DSA Solutions</h3>
-                        <p class="projects__description">
-                            Comprehensive Data Structures and Algorithms solutions in C++ including 
-                            sorting algorithms, tree structures, graph algorithms, and more.
-                        </p>
-                    </div>
-                    <div class="projects__button">
-                        <a href="https://leetcode.com/u/knox_dipmondal/" target="_blank" class="button button--small button--link">
-                            View More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section class="education section" id="education">
-            <h2 class="section__title">Education</h2>
-            <span class="section__subtitle">My Academic Journey</span>
-
-            <div class="education__container container">
-                <div class="education__content">
-                    <div>
-                        <h3 class="education__title">B.Tech in Computer Science And Engineering</h3>
-                        <span class="education__subtitle">KGEC -
-                            <a href="https://www.kgec.edu.in" target="_blank">Kalyani Government Engineering College</a>
-                        </span>
-                        <div class="education__calendar">
-                            <i class="fas fa-calendar-alt"></i>
-                            2024 - 2028
-                        </div>
-                    </div>
-                    <div>
-                        <span class="education__rounder"></span>
-                        <span class="education__line"></span>
-                    </div>
-                </div>
-
-                <div class="education__content">
-                    <div>
-                        <h3 class="education__title">Higher Secondary</h3>
-                        <span class="education__subtitle">AKMHS -
-                            <a href="https://www.google.com/maps/place/Kalna+Ambika+Mahismardini+High+School(H.S)/@23.2237814,88.3579363,20.74z/data=!4m15!1m8!3m7!1s0x39f8e50589ef0c37:0x513c718366d8b422!2sKalna,+West+Bengal!3b1!8m2!3d23.2164297!4d88.3528538!16zL20vMDhzZmdm!3m5!1s0x39f8e506a3865503:0x49fc67960b772b46!8m2!3d23.2238608!4d88.3583335!16s%2Fg%2F1tfyb_8d?entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D" target="_blank">Kalna Ambika Mahismardini High School</a>
-                        </span>
-                        <div class="education__calendar">
-                            <i class="fas fa-calendar-alt"></i>
-                            2022 - 2024
-                        </div>
-                    </div>
-                    <div>
-                        <span class="education__rounder"></span>
-                        <span class="education__line"></span>
-                    </div>
-                </div>
-
-                <div class="education__content">
-                    <div>
-                        <h3 class="education__title">Secondary School</h3>
-                        <span class="education__subtitle"> AKMHS - 
-                            <a href="https://www.google.com/maps/place/Kalna+Ambika+Mahismardini+High+School(H.S)/@23.2237814,88.3579363,20.74z/data=!4m15!1m8!3m7!1s0x39f8e50589ef0c37:0x513c718366d8b422!2sKalna,+West+Bengal!3b1!8m2!3d23.2164297!4d88.3528538!16zL20vMDhzZmdm!3m5!1s0x39f8e506a3865503:0x49fc67960b772b46!8m2!3d23.2238608!4d88.3583335!16s%2Fg%2F1tfyb_8d?entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D" target="_blank">Kalna Ambika Mahismardini High School</a>
-                        </span>
-                        <div class="education__calendar">
-                            <i class="fas fa-calendar-alt"></i>
-                            2012 - 2022
-                        </div>
-                    </div>
-                    <div>
-                        <span class="education__rounder"></span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section class="experience section" id="experience">
-            <h2 class="section__title">Experience</h2>
-            <span class="section__subtitle">My Professional Journey</span>
-
-            <div class="experience__container container">
-                <div class="experience__content">
-                    <div>
-                        <h3 class="experience__title">Programming & Problem Solving (DSA in C++)</h3>
-                        <span class="experience__subtitle">Self-Learning</span>
-                        <div class="experience__calendar">
-                            <i class="fas fa-calendar-alt"></i>
-                            2024 - Present
-                        </div>
-                        <p class="experience__description">
-                            • Practicing Data Structures and Algorithms using C++ to strengthen problem-solving skills.
-                            <br>
-                            • Solving questions on LeetCode and following structured learning materials (e.g., arrays, linked lists, recursion, dynamic programming).
-                            <br>
-                            • Gaining a deeper understanding of time complexity, space optimization, and clean coding practices.
-                        </p>
-                    </div>
-                    <div>
-                        <span class="experience__rounder"></span>
-                        <span class="experience__line"></span>
-                    </div>
-                </div>
-
-                <div class="experience__content">
-                    <div>
-                        <h3 class="experience__title">Machine Learning Enthusiast</h3>
-                        <span class="experience__subtitle">Self-Learning</span>
-                        <div class="experience__calendar">
-                            <i class="fas fa-calendar-alt"></i>
-                            2025 – Present
-                        </div>
-                        <p class="experience__description">
-                            • the fundamentals of Machine Learning including supervised and unsupervised algorithms.
-                            <br>
-                            • Exploring Python libraries such as NumPy, Pandas, and Scikit-learn.
-                            <br>
-                            • Working on small projects to understand data preprocessing, model training, and evaluation.
-                        </p>
-                    </div>
-                    <div>
-                        <span class="experience__rounder"></span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="contact section" id="contact">
-            <h2 class="section__title">Contact Me</h2>
-            <span class="section__subtitle">Get In Touch</span>
-
-            <div class="contact__container container grid">
-                <div>
-                    <div class="contact__information">
-                        <i class="fas fa-phone contact__icon"></i>
-                        <div>
-                            <h3 class="contact__title">Call Me</h3>
-                            <span class="contact__subtitle">
-                                <a href="tel:+XXXXXX0083">+91 XXXXXXXX83</a>  
-                            </span>
-                            
-                        </div>
-                    </div>
-
-                    <div class="contact__information">
-                        <i class="fas fa-envelope contact__icon"></i>
-                        <div>
-                            <h3 class="contact__title">Email</h3>
-                            <span class="contact__subtitle">
-                                <a href="mailto:dipmondalkp616@gmail.com">dipmondalkp616@gmail.com</a>
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="contact__information">
-                        <i class="fas fa-map-marker-alt contact__icon"></i>
-                        <div>
-                            <h3 class="contact__title">Location</h3>
-                            <span class="contact__subtitle">
-                                <a href="https://www.google.com/maps?q=Kalna,Purba+Bardhaman,+West+Bengal" target="_blank">Purba Bardhaman, West Bengal</a>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <form action="" class="contact__form grid">
-                    <div class="contact__inputs grid">
-                        <div class="contact__content">
-                            <label for="" class="contact__label">Name</label>
-                            <input type="text" class="contact__input" id="contact-name">
-                        </div>
-                        <div class="contact__content">
-                            <label for="" class="contact__label">Email</label>
-                            <input type="email" class="contact__input" id="contact-email">
-                        </div>
-                    </div>
-                    <div class="contact__content">
-                        <label for="" class="contact__label">Project</label>
-                        <input type="text" class="contact__input" id="contact-project">
-                    </div>
-                    <div class="contact__content">
-                        <label for="" class="contact__label">Message</label>
-                        <textarea name="" id="contact-message" cols="0" rows="7" class="contact__input"></textarea>
-                    </div>
-
-                    <div>
-                        <a href="#" class="button button--flex" id="contact-submit">
-                            Send Message
-                            <i class="fas fa-paper-plane button__icon"></i>
-                        </a>
-                    </div>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer__bg">
-            <div class="footer__container container grid">
-                <div>
-                    <h1 class="footer__title"> Dip Mondal</h1>
-                    <span class="footer__subtitle">Software Engineer</span>
-                </div>
-
-                <ul class="footer__links">
-                    <li>
-                        <a href="#services" class="footer__link">Services</a>
-                    </li>
-                    <li>
-                        <a href="#projects" class="footer__link">Projects</a>
-                    </li>
-                    <li>
-                        <a href="#contact" class="footer__link">Contact</a>
-                    </li>
-                </ul>
-
-                <div class="footer__socials">
-                    <a href="https://www.linkedin.com/in/me/" target="_blank" class="footer__social">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/dip9564" target="_blank" class="footer__social">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://x.com/DipMondal121425" target="_blank" class="footer__social">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                </div>
-            </div>
-
-            <p class="footer__copy">&#169; 2025. All rights reserved</p>
+    <main id="top">
+      <div class="container hero">
+        <div>
+          <div class="eyebrow">B.Tech CSE Student · 2024—2028</div>
+          <h1>Hi, I’m <span class="name-highlight">Dip Mondal.</span></h1>
+          <p class="role-line">I’m a <span class="typing" aria-live="polite"></span><span class="cursor">|</span></p>
+          <p class="hero-copy">A passionate developer with experience in C, C++, Python, FastAPI, PostgreSQL and ML. I enjoy creating innovative solutions and building projects that make a difference.</p>
+          <div class="socials" aria-label="Social links">
+            <a href="https://www.linkedin.com/in/me/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com/dip9564" target="_blank" rel="noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://x.com/DipMondal121425" target="_blank" rel="noreferrer" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/knox_dipmondal/" target="_blank" rel="noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=100064803362843" target="_blank" rel="noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.leetcode.com/u/knox_dipmondal/" target="_blank" rel="noreferrer" aria-label="LeetCode"><i class="fa-solid fa-code"></i></a>
+          </div>
+          <div class="actions"><a class="btn primary" href="#contact">Contact me →</a><a class="btn secondary project-button" href="#projects">View projects <i class="fa-solid fa-briefcase"></i></a></div>
         </div>
-    </footer>
+        <div class="photo-wrap">
+          <img class="portrait" src="profile.jpg" alt="Dip Mondal" />
+          <div class="photo-label">OPEN TO INTERNSHIPS</div>
+        </div>
+      </div>
 
-    <!-- Scroll Top -->
-    <a href="#home" class="scrolltop" id="scroll-top">
-        <i class="fas fa-arrow-up scrolltop__icon"></i>
-    </a>
+      <section class="about" id="about"><div class="container">
+        <div class="section-heading"><div><div class="section-kicker"> <h3>• Profile</h3></div><h2>A curious mind with a maker’s heart.</h2></div><p class="section-intro">I enjoy solving real-world problems through clean code, thoughtful design, and collaborative work.</p></div>
+        <div class="about-grid"><p class="about-lead">I’m pursuing a B.Tech in Computer Science and Engineering at Kalyani Government Engineering College, developing a strong foundation in programming, data structures, database management and web development.</p><div><p class="about-detail">I enjoy working on challenging projects that push my boundaries and strengthen my problem-solving skills. From Python applications to responsive web interfaces, I aim to create useful solutions with clean, thoughtful code.</p><div class="quick-facts"><div class="fact"><strong>06+</strong><span>Projects built</span></div><div class="fact"><strong>07+</strong><span>Technologies used</span></div><div class="fact"><strong>2028</strong><span>Expected graduate</span></div></div><div class="actions"><a class="btn secondary cv-button" href="Resume.pdf" download>Download CV <i class="fa-solid fa-download"></i></a></div></div></div>
+      </div></section>
 
-    <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="script.js"></script>
-</body>
+      <section id="skills"><div class="container"><div class="section-heading"><div><div class="section-kicker"><h3>• Toolkit</h3></div><h2>Skills I’m growing every day.</h2></div></div><div class="skill-grid">
+        <article class="skill"><h3>Languages</h3><div class="tags"><span class="tag">C</span><span class="tag">C++</span><span class="tag">Python</span><span class="tag">Java</span></div></article>
+        <article class="skill"><h3>Web Technologies</h3><div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">FastAPI</span><span class="tag">Streamlit</span></div></article>
+        <article class="skill"><h3>Tools & Data</h3><div class="tags"><span class="tag">Postgresql</span><span class="tag">Sqlalchemy</span><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Scikit-learn</span><span class="tag">Docker</span><span class="tag">Pandas</span></div></article>
+      </div></div></section>
+
+      <section class="projects" id="projects"><div class="container"><div class="section-heading"><div><div class="section-kicker"><h3>• Selected Work</h3></div><h2>Projects I’m proud of.</h2></div><p class="section-intro">A few practical experiments where I combined code, curiosity, and problem-solving.</p></div><div class="project-grid">
+        <a class="project" href="https://diet.dipmondaldev.me" target="_blank" rel="noreferrer"><span class="project-number">01 — FastAPI,SQLAlchemy,JavaScript</span><h3>AI Diet Manager</h3><p>A web-based AI-powered diet and nutrition tracking application that helps users track their daily food intake, calories, macronutrients, and overall nutrition progress.</p><span class="project-footer">Gemini API · AWS EC2 · Vercel ↗︎</span></a>
+        <a class="project" href="https://advance-chat-analyzer.streamlit.app" target="_blank" rel="noreferrer"><span class="project-number">02 — PYTHON,SCIKIT LEARN</span><h3>WhatsApp Chat Analyzer</h3><p>An AI-powered WhatsApp Chat Analyzer built with Python, Streamlit, Scikit-learn, and Google Gemini AI. Upload your exported WhatsApp chat and explore detailed analytics, visualizations, sentiment analysis, interaction networks, and AI-generated conversation summaries.</p><span class="project-footer">Gemini API · STREAMLIT ↗</span></a>
+        <a class="project" href="https://sms-spam-detectionss.streamlit.app" target="_blank" rel="noreferrer"><span class="project-number">03 — MACHINE LEARNING</span><h3>SMS Spam Detection</h3><p>A machine-learning app that classifies messages as spam or not spam using logistic regression.</p><span class="project-footer">PYTHON · SCIKIT-LEARN ↗</span></a>
+        <a class="project" href="https://qrgenaretor-app.streamlit.app" target="_blank" rel="noreferrer"><span class="project-number">04 — WEB APP</span><h3>QR Code Generator</h3><p>A Streamlit app that creates custom QR codes for URLs, text, and contact information.</p><span class="project-footer">PYTHON · STREAMLIT ↗</span></a>
+        <a class="project" href="https://campus-notice.streamlit.app" target="_blank" rel="noreferrer"><span class="project-number">05 — PYTHON,SQLITE</span><h3>Campus Notice Hub</h3><p>A prototype college notice portal built with Streamlit, Python, SQLite, and Gemini through the google-genai SDK.</p><span class="project-footer"> PYTHON · STREAMLIT ↗</span></a>
+        <a class="project" href="https://video-download-app.streamlit.app" target="_blank" rel="noreferrer"><span class="project-number">06 — PYTHON</span><h3>Video Downloader</h3><p>A Python app for downloading YouTube and Facebook videos in multiple formats and resolutions.</p><span class="project-footer">PYTHON · STREAMLIT ↗</span></a>
+      </div></div></section>
+
+      <section id="education"><div class="container"><div class="section-heading"><div><div class="section-kicker"><h3>• Journey</h3></div><h2>Education & experience.</h2></div></div><div class="timeline">
+        <article class="timeline-item"><div class="timeline-meta">2024 — 2028</div><h3>B.Tech, Computer Science & Engineering</h3><p>Kalyani Government Engineering College (KGEC) · Expected graduation: 2028</p></article>
+        <article class="timeline-item"><div class="timeline-meta">2025 — Present</div><h3>Machine Learning Enthusiast</h3><p>Learning supervised and unsupervised learning, and building projects with NumPy, Pandas, and Scikit-learn.</p></article>
+        <article class="timeline-item"><div class="timeline-meta">2024 — Present</div><h3>Programming & Problem Solving</h3><p>Strengthening Data Structures and Algorithms skills in C++ through structured practice on LeetCode.</p></article>
+        <article class="timeline-item"><div class="timeline-meta">2022 — 2024</div><h3>Higher Secondary Education</h3><p>Kalna Ambika Mahismardini High School (H.S.) · Science stream</p></article>
+      </div></div></section>
+
+      <section class="contact" id="contact"><div class="container"><div class="section-kicker"> <h3>Contact</h3></div><h2>Have an idea, opportunity, or just want to connect?</h2><p>I’d love to hear from you. Reach out for internships, projects, or a friendly conversation about technology.</p><a class="btn primary" href="mailto:dipmondalkp616@gmail.com">dipmondalkp616@gmail.com ↗</a></div></section>
+    </main>
+    <footer><div class="container footer-inner"><p>© 2026 Dip Mondal. Designed and built with intention.</p><p><a href="https://github.com/dip9564" target="_blank" rel="noreferrer">GitHub</a> · <a href="https://x.com/DipMondal121425" target="_blank" rel="noreferrer">X</a> · <a href="https://www.instagram.com/knox_dipmondal/" target="_blank" rel="noreferrer">Instagram</a> · Purba Bardhaman, West Bengal</p></div></footer>
+    <script>
+      const menuButton = document.querySelector('.menu');
+      const navigation = document.querySelector('.nav-links');
+      menuButton.addEventListener('click', () => navigation.classList.toggle('open'));
+      navigation.addEventListener('click', () => navigation.classList.remove('open'));
+
+      const typingElement = document.querySelector('.typing');
+      const roles = ['Software Developer', 'C++ Programmer', 'Python Developer', 'Problem Solver'];
+      let roleIndex = 0;
+      let letterIndex = 0;
+      let deleting = false;
+
+      function typeRole() {
+        const role = roles[roleIndex];
+        typingElement.textContent = role.slice(0, letterIndex);
+
+        if (!deleting && letterIndex < role.length) {
+          letterIndex += 1;
+          setTimeout(typeRole, 95);
+        } else if (!deleting) {
+          deleting = true;
+          setTimeout(typeRole, 1700);
+        } else if (letterIndex > 0) {
+          letterIndex -= 1;
+          setTimeout(typeRole, 50);
+        } else {
+          deleting = false;
+          roleIndex = (roleIndex + 1) % roles.length;
+          setTimeout(typeRole, 400);
+        }
+      }
+
+      typeRole();
+    </script>
+  </body>
 </html>
