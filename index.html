@@ -13,7 +13,7 @@
     <style>
       :root { --ink:#f7f9ff; --muted:#aebbd1; --paper:#0b1220; --card:#17243a; --blue:#67d4ff; --cyan:#38bdf8; --line:#2a405c; --dark:#0b1220; --accent:#5590f5; --violet:#7866e9; }
       * { box-sizing:border-box; }
-      html { scroll-behavior:smooth; }
+      html { scroll-behavior:smooth; background:#0b1220; }
       body { margin:0; font-family:Manrope,Arial,sans-serif; color:var(--ink); background:radial-gradient(circle at 8% 7%, #1d355d 0, transparent 24rem), radial-gradient(circle at 93% 30%, #25264f 0, transparent 30rem), linear-gradient(135deg, #090f1c 0%, #111b2c 48%, #0a1220 100%); background-attachment:fixed; line-height:1.6; }
       a { color:inherit; text-decoration:none; }
       .container { width:min(1120px, calc(100% - 40px)); margin:auto; }
@@ -86,6 +86,9 @@
       .footer-inner { display:flex; justify-content:space-between; gap:20px; }
       .footer-inner a { color:white; font-weight:700; }
       @media (max-width:760px) {
+        body { background-attachment:scroll; background-color:#0b1220; }
+        main { background:#0b1220; }
+        .about { background:#101b2f; }
         .container { width:min(1120px, calc(100% - 32px)); }
         .nav { height:66px; }
         .menu { display:block; }
